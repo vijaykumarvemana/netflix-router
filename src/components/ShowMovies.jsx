@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import { Link } from 'react-router-dom'
+import MovieDetails from "./MovieDetails";
 const ShowMovies = () => {
   const [movies, setMovies] = useState([]);
+  
   const [selectedMovie, setSelectedMovie] = useState(false)
   const getMovies = async () => {
     try {
@@ -33,9 +35,9 @@ const ShowMovies = () => {
     <Container md={2} className="mt-5">
       <Row >
         {movies.slice(0,6).map((movie) => (
-          <Col xs={6} md={2} key={movie.id}>
+          <Col xs={6} md={2} key={movie.imdbID}>
               <Link to='/'>
-            <Card onClick={() => setSelectedMovie(!selectedMovie)}>
+            <Card onClick={() => setSelectedMovie(!selectedMovie) && <MovieDetails movie={movie}/>}>
               <Card.Img variant="top" src={movie.Poster}  />
               <Card.Title>{movie.Title}</Card.Title>
             </Card>
