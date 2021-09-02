@@ -10,7 +10,7 @@ function App() {
   <Router>
       
       <Route path="/" exact component={ShowMovies}/>
-      <Route path="/details/:movieID" component={MovieDetails} />
+      <Route path="/details/:movieID" exact component={MovieDetails} />
 
   </Router>
 
