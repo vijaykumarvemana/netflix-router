@@ -36,7 +36,7 @@ const ShowMovies = () => {
       <Row >
         {movies.slice(0,6).map((movie) => (
           <Col xs={6} md={2} key={movie.imdbID}>
-              <Link to='/'>
+              <Link to={`/details/${movie.imdbID}`}>
             <Card onClick={() => setSelectedMovie(!selectedMovie) && <MovieDetails movie={movie}/>}>
               <Card.Img variant="top" src={movie.Poster}  />
               <Card.Title>{movie.Title}</Card.Title>
